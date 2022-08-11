@@ -26,7 +26,6 @@ class Process {
     std::string user_;
     std::string cmd_;
     std::string ram_;
-    long int uTime_;
 
 };
 

@@ -11,7 +11,7 @@ using std::to_string;
 using std::vector;
 
 Process::Process(int n) : pid_(n), user_(LinuxParser::User(pid_)), cmd_(LinuxParser::Command(pid_)), 
-    ram_(LinuxParser::Ram(pid_)), uTime_(LinuxParser::UpTime(pid_)) {}
+    ram_(LinuxParser::Ram(pid_)) {}
 
 // TODO: Return this process's ID
 int Process::Pid() { return pid_; }
@@ -37,7 +37,11 @@ string Process::Ram() { return ram_; }
 string Process::User() { return user_; }
 
 // TODO: Return the age of this process (in seconds)
-long int Process::UpTime() { return uTime_; }
+long int Process::UpTime() { 
+    long starttime = LinuxParser::UpTime(pid_);
+    long uptime = LinuxParser::UpTime();
+    return uptime - starttime;
+ }
 
 // TODO: Overload the "less than" comparison operator for Process objects
 // REMOVE: [[maybe_unused]] once you define the function

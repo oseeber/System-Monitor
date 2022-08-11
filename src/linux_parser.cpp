@@ -126,7 +126,6 @@ long LinuxParser::ActiveJiffies(int pid) {
       i++;
     }
     tot_time = utime + stime + cutime + cstime;
-    return tot_time;
   }
   return tot_time;
  }
